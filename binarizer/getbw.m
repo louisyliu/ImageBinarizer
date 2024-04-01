@@ -1,9 +1,27 @@
 function img = getbw(img, bwPara)
-%GETBW binarizes fluorescent movie for single-cell tracking.
-%   BW = GETBW(IMG, BWPARA) first applies bandpass filter with the same
-%   algorithm with bandpass filter in imageJ.  The filtered image is further
-%   filtered by a Gaussian filter and finally thresholded with adaptive
-%   binarization.
+%GETBW Binarizes image stack.
+%   BW = GETBW(IMG, BWPARA) applies a series of image processing steps to
+%   binarize the input image stack IMG. The function first applies a 
+%   bandpass filter using the same algorithm as the bandpass filter in ImageJ.
+%   The filtered image is then further processed by a Gaussian filter and
+%   finally thresholded using adaptive binarization.
+%
+%   Inputs:
+%   - IMG: Input image stack or image to be binarized.
+%   - BWPARA: Struct containing binarization parameters.
+%       - invert: Logical flag indicating whether to invert the input image.
+%       - isbp: Logical flag indicating whether to apply bandpass filter.
+%       - bpmin: Minimum wavelength for bandpass filter (if isbp is true).
+%       - bpmax: Maximum wavelength for bandpass filter (if isbp is true).
+%       - gaussSigma: Standard deviation of the Gaussian filter. Set to 0 to
+%                     skip Gaussian filtering.
+%       - binarize: Logical flag indicating whether to perform binarization.
+%       - sensitivity: Sensitivity parameter for adaptive binarization.
+%       - areaopenSize: Minimum area size for removing small objects after
+%                       binarization.
+%
+%   Output:
+%   - BW: Binarized image or movie.
 
 if bwPara.invert
     img = imcomplement(img);

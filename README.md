@@ -1,10 +1,14 @@
 # ![imagebinarizer](sample/icon.png) ImageBinarizer
 
-The Image Binarizer App is a user-friendly MATLAB application designed to provide an intuitive interface for binarizing images. With this app, users can easily adjust various parameters to achieve the desired binarization results. The app offers a range of features, including bandpass filtering, Gaussian filtering, adaptive binarization, area opening, and image intensity inversion. It also supports real-time previewing, generating binarized image stacks, and exporting binarization parameters for batch processing.
+![license](https://img.shields.io/badge/License-MIT-blue)
+
+Fast and accurate image binarization makes simple.
+
+The Image Binarizer is a user-friendly MATLAB program designed to provide an intuitive interface for binarizing images. With this program, users can easily adjust various parameters to achieve the desired binarization results.
 
 ## Features
 
-- **Interactive GUI**: The app provides an intuitive graphical user interface that allows users to adjust binarization parameters effortlessly.
+- **Interactive GUI**: The program provides an intuitive graphical user interface that allows users to adjust binarization parameters effortlessly.
 - **Real-time Preview**: Users can instantly see the effects of their adjustments on the binarized image through the real-time preview feature.
 - **Batch Processing**: Binarization parameters can be exported for batch processing, enabling users to apply the same settings to a large number of images efficiently.
 
@@ -26,6 +30,10 @@ The Image Binarizer App is a user-friendly MATLAB application designed to provid
    ```
 
 2. Download the ZIP file from [**ImageBinarizer**](https://github.com/tytghy/ImageBinarizer).
+
+## Algorithm
+
+The Image Binarizer applies a series of image processing steps to binarize the input image stack IMG. It first applies a bandpass filter using the same algorithm as the bandpass filter in ImageJ. The filtered image is then further processed by a Gaussian filter and finally thresholded using adaptive binarization.
 
 ## Usage
 
@@ -51,7 +59,7 @@ Using the Image Binarizer App is straightforward:
 
 ## Batch Processing
 
-The Image Binarizer App supports batch processing, allowing you to apply the same binarization parameters to a large number of images efficiently. To perform batch processing:
+The Image Binarizer supports batch processing, allowing you to apply the same binarization parameters to a large number of images efficiently. To perform batch processing:
 
 1. Load the image stack into the app and adjust the binarization parameters as desired.
 2. Export the binarization parameters using the "Export Settings" button.
@@ -77,4 +85,4 @@ bw = bwfun(@(x) getbw(x, bwPara), img);
 
 ## License
 
-The Image Binarizer App is released under the [MIT License](LICENSE).
+The Image Binarizer is licensed under the [MIT License](LICENSE).
